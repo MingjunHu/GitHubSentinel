@@ -2,7 +2,7 @@ import os
 import json
 
 class Config:
-    GITHUB_TOKEN = os.getenv('GITHUB_TOKEN', 'your_token_here')
+    GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
     NOTIFICATION_EMAIL = 'hmj007007@gmail.com'
     UPDATE_FREQUENCY = 'daily'  # or 'weekly'
     
@@ -16,6 +16,3 @@ class Config:
     @staticmethod
     def init_app(app):
         pass
-
-# 调试：打印当前 Token，确保已正确加载
-print(f"Using GitHub Token: {Config.GITHUB_TOKEN}")

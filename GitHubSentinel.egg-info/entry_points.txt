@@ -1,0 +1,2 @@
+[console_scripts]
+gh-sentinel = sentinel.cli.sentinel_cli:main
