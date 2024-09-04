@@ -1,0 +1,11 @@
+
+        Latest Release Information for langchain:
+        - Tag: langchain-core==0.2.37
+        - Name: langchain-core==0.2.37
+        - Published at: 2024-08-30T22:42:38Z
+        - Body: Changes since langchain-core==0.2.36
+
+core[patch]: Release 0.2.37 (#25900)
+core[patch]: dont mutate merged lists/dicts (#25858)
+core: prompt variable error msg (#25787)
+        
