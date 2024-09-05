@@ -5,13 +5,15 @@ from sentinel.config import Config
 class NotificationService:
     def __init__(self):
         self.recipient = Config.NOTIFICATION_EMAIL
+        self.email_username=Config.EMAIL_USERNAME
+        self.email_password=Config.EMAIL_PASSWORD
 
     def send_email(self, subject, message):
         msg = MIMEText(message)
         msg['Subject'] = subject
-        msg['From'] = '116101982@qq.com'
+        msg['From'] = self.email_username
         msg['To'] = self.recipient
 
         with smtplib.SMTP_SSL('smtp.qq.com',465) as server:
-            server.login('116101982@qq.com', 'wsfrunybtnsocadi')
-            server.sendmail('116101982@qq.com', [self.recipient], msg.as_string())
+            server.login(self.email_username, 'wsfrunybtnsocadi')
+            server.sendmail(self.email_username, [self.recipient], msg.as_string())

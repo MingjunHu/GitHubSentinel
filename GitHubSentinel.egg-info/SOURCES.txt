@@ -8,8 +8,12 @@ GitHubSentinel.egg-info/requires.txt
 GitHubSentinel.egg-info/top_level.txt
 sentinel/__init__.py
 sentinel/config.py
+sentinel/daily_progress.py
+sentinel/llm_module.py
 sentinel/main.py
+sentinel/report_generator.py
 sentinel/cli/__init__.py
+sentinel/cli/parser.py
 sentinel/cli/sentinel_cli.py
 sentinel/models/__init__.py
 sentinel/models/subscription.py
