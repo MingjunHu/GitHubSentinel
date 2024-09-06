@@ -10,61 +10,80 @@ class GitHubAPI:
         self.token = Config.GITHUB_TOKEN
         self.headers = {'Authorization': f'token {self.token}'}
 
-    def get_repo_issues(self, repo):
+    def fetch_updates(self, repo, since=None, until=None):
+        # 获取指定仓库的更新，可以指定开始和结束日期
+        updates = {
+            'commits': self.get_repo_commits(repo, since, until),  # 获取提交记录
+            'issues': self.get_repo_issues(repo, since, until),  # 获取问题
+            'pull_requests': self.get_repo_pull_requests(repo, since, until)  # 获取拉取请求
+        }
+        return updates
+
+    def get_repo_issues(self, repo, since=None, until=None):
         url = f'https://api.github.com/repos/{repo}/issues'
-        response = requests.get(url, headers=self.headers)
+        params = {
+            'state': 'closed',  # 仅获取已关闭的问题
+            'since': since,
+            'until': until
+        }
+        response = requests.get(url, headers=self.headers, params=params)
         response.raise_for_status()
         return response.json()
 
-    def get_repo_pull_requests(self, repo):
+    def get_repo_pull_requests(self, repo, since=None, until=None):
         url = f'https://api.github.com/repos/{repo}/pulls'
-        response = requests.get(url, headers=self.headers)
+        params = {
+            'state': 'closed',  # 仅获取已合并的拉取请求
+            'since': since,
+            'until': until
+        }
+        response = requests.get(url, headers=self.headers, params=params)
         response.raise_for_status()
         return response.json()
 
-    def get_repo_commits(self, repo):
+    def get_repo_commits(self, repo, since=None, until=None):
         url = f'https://api.github.com/repos/{repo}/commits'
         response = requests.get(url, headers=self.headers)
         response.raise_for_status()
         return response.json()
 
-    def export_to_markdown(self, repo, issues, pulls, commits):
-        # 创建以 repo 和当前日期命名的 markdown 文件
-        date = datetime.now().strftime('%Y-%m-%d')
-        filename = f"{repo.replace('/', '_')}_{date}.md"
-        filepath = os.path.join('daily_reports', filename)
-        os.makedirs('daily_reports', exist_ok=True)
-
-        with open(filepath, 'w', encoding='utf-8') as md_file:
-            md_file.write(f"# Daily Progress for {repo} - {date}\n\n")
-
-            # Issues
-            md_file.write("## Issues:\n")
-            if issues:
-                for issue in issues:
-                    md_file.write(f"- [{issue['title']}]({issue['html_url']})\n")
-            else:
-                md_file.write("No issues found.\n")
-            md_file.write("\n")
-
-            # Pull Requests
-            md_file.write("## Pull Requests:\n")
-            if pulls:
-                for pull in pulls:
-                    md_file.write(f"- [{pull['title']}]({pull['html_url']})\n")
-            else:
-                md_file.write("No pull requests found.\n")
-            md_file.write("\n")
-
-            # Commits
-            md_file.write("## Commits:\n")
-            if commits:
-                for commit in commits:
-                    commit_message = commit['commit']['message'].split('\n')[0]  # 只取第一行
-                    commit_url = commit['html_url']
-                    md_file.write(f"- [{commit_message}]({commit_url})\n")
-            else:
-                md_file.write("No commits found.\n")
+    def export_to_markdown(self, repo):
+        LOG.debug(f"[准备导出项目进度]：{repo}")
+        today = datetime.now().date().isoformat()  # 获取今天的日期
+        updates = self.fetch_updates(repo, since=today)  # 获取今天的更新数据
         
-        print(f"Exported daily report to {filepath}")
-        return filepath
+        repo_dir = os.path.join('daily_progress', repo.replace("/", "_"))  # 构建存储路径
+        os.makedirs(repo_dir, exist_ok=True)  # 确保目录存在
+        
+        file_path = os.path.join(repo_dir, f'{today}.md')  # 构建文件路径
+        with open(file_path, 'w') as file:
+            file.write(f"# Daily Progress for {repo} ({today})\n\n")
+            file.write("\n## Issues Closed Today\n")
+            for issue in updates['issues']:  # 写入今天关闭的问题
+                file.write(f"- {issue['title']} #{issue['number']}\n")
+        
+        LOG.info(f"[{repo}]项目每日进展文件生成： {file_path}")  # 记录日志
+        return file_path
+    
+    def export_to_markdown(self, repo, days):
+        today = date.today()  # 获取当前日期
+        since = today - timedelta(days=days)  # 计算开始日期
+        
+        updates = self.fetch_updates(repo, since=since.isoformat(), until=today.isoformat())  # 获取指定日期范围内的更新
+        
+        repo_dir = os.path.join('daily_progress', repo.replace("/", "_"))  # 构建目录路径
+        os.makedirs(repo_dir, exist_ok=True)  # 确保目录存在
+        
+        # 更新文件名以包含日期范围
+        date_str = f"{since}_to_{today}"
+        file_path = os.path.join(repo_dir, f'{date_str}.md')  # 构建文件路径
+        
+        with open(file_path, 'w') as file:
+            file.write(f"# Progress for {repo} ({since} to {today})\n\n")
+            file.write(f"\n## Issues Closed in the Last {days} Days\n")
+            for issue in updates['issues']:  # 写入在指定日期内关闭的问题
+                file.write(f"- {issue['title']} #{issue['number']}\n")
+        
+        LOG.info(f"[{repo}]项目最新进展文件生成： {file_path}")  # 记录日志
+        return file_path
+    

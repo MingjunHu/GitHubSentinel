@@ -1,0 +1,65 @@
+# langchain-ai/langchain Daily Progress - 2024-09-05
+
+## Issues
+- ChatGoogleGenerativeAI:  **TypeError** when using @tool decorated methods to perform Tool Calling using Gimini. #26083
+- DOC: <Issue related to /v0.2/docs/tutorials/chatbot/> How to check LangSmith trace ? #26081
+- Add PiecesOS LLM integration #26080
+- Neo4j example cannot use APOC procedures. #26077
+- huggingface: fix _convert_TGI_message_to_LC_message issue, which will replace all … #26075
+- Update FeatureTables.js to reflect Cohere's support for JSON mode #26074
+- [Tests] Clear cache for env-var checks #26073
+- templates: Aerospike Vector Store RAG template #26066
+- support epsilla cloud vector database in langchain #26065
+- core: fix "template" not allowed as prompt param #26060
+- docs: `integrations` reference updates 16 #26059
+- Can't use mustache/jinja2 templates with an argument named "template" #26058
+- mongo[major]: upgrade pydantic #26053
+- BedrockLLM throws LangChainTraver.on_llm_end callback error #26049
+- Solve #26046: Use requests with common headers rather than httpx to avoid 302 redirect error #26047
+- `get_num_tokens_from_message` will cause 302 Redirect on specific image in message list #26046
+- docs: small improvement ChatOllama setup description #26043
+- fix: Problem with embeddings in new versions of clickhouse. #26041
+- fix(community): Add support for Bedrock cross-region inference models #26038
+- docs: update agent_executor.ipynb #26035
+- core[minor]: Add get_input_jsonschema, get_output_jsonschema, get_config_jsonschema #26034
+- pgvector - (psycopg.DataError) PostgreSQL text fields cannot contain NUL (0x00) bytes #26033
+- safe_mode Parameter in ChatMistralAI Class Should Not Be Set to False by default or safe_prompt body parameter not sent to mistral api #26029
+- ExperimentalMarkdownSyntaxTextSplitter missing in __init__ #26028
+- Python 3.13 needs Numpy > 2.0 #26026
+- DOC: <Issue related to /v0.2/docs/integrations/text_embedding/nomic/> #26022
+- Refining Skip Count Calculation by Filtering Documents with `session_id` #26020
+- Prevent Infinite Tool Call Loop in Customer Support Agent (LangGraph) #26019
+- langchain-airbyte: Please bump Python 3.12 version limit #26018
+- Supabase vectorstore uses different schema from docs #26017
+
+## Pull Requests
+- Add PiecesOS LLM integration #26080
+- huggingface: fix _convert_TGI_message_to_LC_message issue, which will replace all … #26075
+- Update FeatureTables.js to reflect Cohere's support for JSON mode #26074
+- [Tests] Clear cache for env-var checks #26073
+- templates: Aerospike Vector Store RAG template #26066
+- support epsilla cloud vector database in langchain #26065
+- core: fix "template" not allowed as prompt param #26060
+- docs: `integrations` reference updates 16 #26059
+- mongo[major]: upgrade pydantic #26053
+- Solve #26046: Use requests with common headers rather than httpx to avoid 302 redirect error #26047
+- docs: small improvement ChatOllama setup description #26043
+- fix: Problem with embeddings in new versions of clickhouse. #26041
+- fix(community): Add support for Bedrock cross-region inference models #26038
+- docs: update agent_executor.ipynb #26035
+- core[minor]: Add get_input_jsonschema, get_output_jsonschema, get_config_jsonschema #26034
+- Refining Skip Count Calculation by Filtering Documents with `session_id` #26020
+- community: add Sineps modules #26016
+- langchain-community[major]: Upgrade community to pydantic 2 #26011
+- fix crash when using create_xml_agent with parameterless function as … #26002
+- docs: `integrations` reference updates 15 #25994
+- infra: ignore docs build in v0.3rc branch #25990
+- fix: HuggingFacePipeline model_id parameter #25973
+- langchain_chroma: Pass through kwargs to Chroma collection.delete #25970
+- community: Add reference doc for Links #25969
+- langchain: [indexing] [feature] support for mssql backend in indexing #25966
+- Feature/update hunyuan #25960
+- community: Fix links in GraphVectorStore pydoc #25959
+- community: Fix planner_prompt so api_controller defines "action" #25957
+- Add warning when page_content is empty #25955
+- MonsterAPI Integration #25948

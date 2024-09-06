@@ -10,6 +10,7 @@ sentinel/__init__.py
 sentinel/config.py
 sentinel/daily_progress.py
 sentinel/llm_module.py
+sentinel/logger.py
 sentinel/main.py
 sentinel/report_generator.py
 sentinel/cli/__init__.py

@@ -1,3 +1,4 @@
+# sentinel/config.py
 import os
 import json
 
@@ -24,4 +25,4 @@ class Config:
         pass
 
 # 调试：打印当前 Token，确保已正确加载
-print(f"Using GitHub Token: {Config.GITHUB_TOKEN}")
+#print(f"Using GitHub Token: {Config.GITHUB_TOKEN}")

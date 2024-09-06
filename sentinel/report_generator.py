@@ -2,22 +2,26 @@
 
 import os
 from sentinel.llm_module import LLMModule
+from sentinel.logger import LOG  # 导入日志模块，用于记录日志信息
 
 class ReportGenerator:
     def __init__(self):
         self.llm = LLMModule()
 
-    def generate_formal_report(self, markdown_file):
-        with open(markdown_file, 'r', encoding='utf-8') as file:
-            content = file.read()
+    def generate_formal_report(self, report_file_path):
+        # 读取Markdown文件并使用LLM生成日报
+        with open(markdown_file_path, 'r') as file:
+            markdown_content = file.read()
 
-        summary = self.llm.generate_summary(content)
-        report_filename = markdown_file.replace('.md', '_report.md')
-        with open(report_filename, 'w', encoding='utf-8') as report_file:
-            report_file.write(f"# Formal Daily Report\n\n{summary}")
+        report = self.llm.generate_summary(markdown_content)  # 调用LLM生成报告
 
-        print(f"Generated formal report: {report_filename}")
-        return report_filename
+        report_file_path = os.path.splitext(markdown_file_path)[0] + "_report.md"
+        with open(report_file_path, 'w+') as report_file:
+            report_file.write(report)  # 写入生成的报告
+
+        LOG.info(f"GitHub 项目报告已保存到 {report_file_path}")
+
+        return report, report_file_path
 
     def generate_formal_reports(self):
         daily_reports_dir = 'daily_reports'
