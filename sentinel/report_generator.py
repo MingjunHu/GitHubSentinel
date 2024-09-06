@@ -8,7 +8,7 @@ class ReportGenerator:
     def __init__(self):
         self.llm = LLMModule()
 
-    def generate_formal_report(self, report_file_path):
+    def generate_formal_report(self, markdown_file_path):
         # 读取Markdown文件并使用LLM生成日报
         with open(markdown_file_path, 'r') as file:
             markdown_content = file.read()
@@ -24,7 +24,7 @@ class ReportGenerator:
         return report, report_file_path
 
     def generate_formal_reports(self):
-        daily_reports_dir = 'daily_reports'
+        daily_reports_dir = 'daily_progress'
         for filename in os.listdir(daily_reports_dir):
             if filename.endswith('.md') and not filename.endswith('_report.md'):
                 filepath = os.path.join(daily_reports_dir, filename)

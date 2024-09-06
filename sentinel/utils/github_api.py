@@ -4,6 +4,7 @@ import requests
 from datetime import datetime
 import os
 from sentinel.config import Config
+from sentinel.logger import LOG  # 导入日志模块
 
 class GitHubAPI:
     def __init__(self):
@@ -65,7 +66,7 @@ class GitHubAPI:
         LOG.info(f"[{repo}]项目每日进展文件生成： {file_path}")  # 记录日志
         return file_path
     
-    def export_to_markdown(self, repo, days):
+    def export_to_markdown_by_date_range(self, repo, days):
         today = date.today()  # 获取当前日期
         since = today - timedelta(days=days)  # 计算开始日期
         

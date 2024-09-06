@@ -1,5 +1,5 @@
 # sentinel/daily_progress.py
-
+import requests
 from sentinel.utils.github_api import GitHubAPI
 from sentinel.config import Config
 
