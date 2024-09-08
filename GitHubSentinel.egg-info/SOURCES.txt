@@ -9,6 +9,7 @@ GitHubSentinel.egg-info/top_level.txt
 sentinel/__init__.py
 sentinel/config.py
 sentinel/daily_progress.py
+sentinel/gradio_server.py
 sentinel/llm_module.py
 sentinel/logger.py
 sentinel/main.py

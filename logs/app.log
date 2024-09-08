@@ -5,3 +5,7 @@
 2024-09-06 07:12:17 | INFO | github_api:export_to_markdown:66 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-06.md
 2024-09-06 07:13:31 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_reports/langchain-ai_langchain_2024-09-05_report.md
 2024-09-06 07:23:20 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/2024-09-05_report.md
+2024-09-06 09:51:08 | DEBUG | github_api:export_to_markdown:52 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-06 09:51:10 | INFO | github_api:export_to_markdown:66 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-06.md
+2024-09-08 11:59:52 | INFO | github_api:export_to_markdown_by_date_range:88 - [langchain-ai/langchain]项目最新进展文件生成： daily_progress/langchain-ai_langchain/2024-09-06_to_2024-09-08.md
+2024-09-08 11:59:56 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-06_to_2024-09-08_report.md
