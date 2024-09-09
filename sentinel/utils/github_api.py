@@ -44,9 +44,15 @@ class GitHubAPI:
 
     def get_repo_commits(self, repo, since=None, until=None):
         url = f'https://api.github.com/repos/{repo}/commits'
-        response = requests.get(url, headers=self.headers)
-        response.raise_for_status()
-        return response.json()
+        params = {}
+        if since:
+            params['since'] = since  # 如果指定了开始日期，添加到参数中
+        if until:
+            params['until'] = until  # 如果指定了结束日期，添加到参数中
+
+        response = requests.get(url, headers=self.headers, params=params)
+        response.raise_for_status()  # 检查请求是否成功
+        return response.json()  # 返回JSON格式的数据
 
     def export_to_markdown(self, repo):
         LOG.debug(f"[准备导出项目进度]：{repo}")

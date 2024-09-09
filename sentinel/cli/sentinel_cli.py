@@ -1,9 +1,12 @@
+#/sentinel/cli/sentinel_cli.py
+
 import argparse
 import threading
 from sentinel.daily_progress import generate_daily_progress
 from sentinel.report_generator import ReportGenerator
 from sentinel.tasks.scheduler import Scheduler
 from sentinel.services.subscription_service import SubscriptionService
+from sentinel.logger import LOG  # 导入日志模块
 
 subscription_service = SubscriptionService()
 report_generator = ReportGenerator()
@@ -13,9 +16,11 @@ scheduler_thread = None
 def start_scheduler():
     global scheduler, scheduler_thread
     scheduler = Scheduler(subscription_service)
-    scheduler_thread = threading.Thread(target=scheduler.start)
+    scheduler_thread = threading.Thread(target=scheduler.start,args=(scheduler,))
     scheduler_thread.daemon = True  # 设置为守护线程，不阻塞主进程
     scheduler_thread.start()
+    LOG.info("Scheduler thread started.")  # 记录调度器线程已启动
+    
     print("Scheduler started in the background.")
 
 def stop_scheduler():
