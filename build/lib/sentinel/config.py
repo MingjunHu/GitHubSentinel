@@ -14,6 +14,7 @@ class Config:
     UPDATE_FREQUENCY = 'daily'  # or 'weekly'
 
     freq_days = 1
+    exec_time="08:00"
     
     @staticmethod
     def get_subscribed_repositories():

@@ -7,6 +7,7 @@
 - **每日进展模块**：自动获取订阅仓库的 Issues、Pull Requests 和 Commits，生成项目进展报告并以 Markdown 格式导出。
 - **LLM 模块**：集成了 OpenAI GPT-4 API，根据项目更新生成简明扼要的日报告。
 - **Web UI 支持**：通过 Gradio 构建的 Web 界面，用户可以在线生成报告并下载。
+- **调度器守护进程**：后台运行调度任务，定期检查仓库更新并生成报告。
 - **日志记录**：通过 Loguru 提供详细的日志记录，确保项目运行的透明性和可调试性。
 
 ## 安装
@@ -90,7 +91,35 @@ GitHub Sentinel 提供了一个便捷的命令行工具 `gh-sentinel`，支持�
     gh-sentinel list
     ```
 
-### 2. Web UI 使用指南
+### 2. 守护进程管理
+
+GitHub Sentinel 支持以守护进程方式运行任务，通过 `daemon_control.sh` 脚本管理。以下是管理守护进程的常用命令：
+
+- **启动守护进程**：
+
+    ```bash
+    ./daemon_control.sh start
+    ```
+
+- **停止守护进程**：
+
+    ```bash
+    ./daemon_control.sh stop
+    ```
+
+- **查看守护进程状态**：
+
+    ```bash
+    ./daemon_control.sh status
+    ```
+
+- **重启守护进程**：
+
+    ```bash
+    ./daemon_control.sh restart
+    ```
+
+### 3. Web UI 使用指南
 
 GitHub Sentinel 通过 Gradio 提供了一个简单的 Web UI，用户可以在线生成报告并下载。
 
@@ -98,3 +127,24 @@ GitHub Sentinel 通过 Gradio 提供了一个简单的 Web UI，用户可以在�
 
 ```bash
 python -m sentinel.gradio_server
+
+Web 界面将自动启动并生成一个本地或在线的可访问链接，用户可以通过下拉菜单选择项目并生成报告。
+
+配置文件
+项目的主要配置项通过 sentinel/config.py 管理，可以通过修改以下参数来控制行为：
+
+GITHUB_TOKEN：GitHub API 的访问令牌。
+OPENAI_API_KEY：OpenAI 的 API 密钥，用于生成项目报告。
+EMAIL_USERNAME 和 EMAIL_PASSWORD：用于发送报告通知邮件的邮箱账号和密码。
+freq_days：定时任务的执行频率，默认为每天执行。
+开发日志
+v0.5: 完成报告生成功能，包括自动发送项目进展报告邮件。
+v0.4.2: 添加守护进程控制脚本，支持后台运行任务并生成报告。
+v0.4.1: 优化了调度器和命令行工具的管理，改进了日志记录。
+v0.4: 集成了 Gradio Web UI，用户可以通过 Web 界面选择订阅项目并生成报告。
+v0.3: 优化了 LLM 模块，完善了日志记录功能。
+v0.2: 增加了每日进展报告的生成功能。
+v0.1: 实现了 GitHub 仓库订阅功能并支持命令行工具。
+
+贡献
+欢迎提交问题和功能请求！如果你想贡献代码，请提交 Pull Request

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='GitHubSentinel',
-    version='0.4.2',  # 更新为v0.4.0版本
+    version='0.5',  # 更新为v0.4.0版本
     packages=find_packages(),
     install_requires=[
         'requests',
@@ -12,6 +12,7 @@ setup(
         'python-daemon',  # 新增 python-daemon 依赖
         'datetime',
         'schedule',
+        'markdown2',
     ],
     entry_points={
         'console_scripts': [

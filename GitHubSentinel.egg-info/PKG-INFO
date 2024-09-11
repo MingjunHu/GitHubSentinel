@@ -12,3 +12,4 @@ Requires-Dist: gradio
 Requires-Dist: python-daemon
 Requires-Dist: datetime
 Requires-Dist: schedule
+Requires-Dist: markdown2

@@ -5,3 +5,4 @@ gradio
 python-daemon
 datetime
 schedule
+markdown2

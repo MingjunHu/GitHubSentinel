@@ -10,3 +10,60 @@
 2024-09-11 04:14:44 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A692ZNl4LZGLVJ2QXqRM81w13XDli', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 今日没有新增功能。\n\n## 主要改进\n- 今日没有主要改进。\n\n## 修复问题\n- 今日关闭了若干个问题，具体细节尚未更新。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726028083, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=64, prompt_tokens=224, total_tokens=288))
 2024-09-11 04:14:44 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
 2024-09-11 04:14:45 | INFO | daemon_process:github_job:39 - [定时任务执行完毕]
+2024-09-11 04:57:13 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
+2024-09-11 04:57:13 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
+2024-09-11 04:57:13 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-11 04:57:14 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
+2024-09-11 04:57:14 | INFO | llm_module:generate_summary:33 - Starting report generation using GPT model.
+2024-09-11 04:57:15 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A69hiaYX1EbGQTHdYLyDKjDSNABC1', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 无新增功能记录。\n\n## 主要改进\n- 无主要改进记录。\n\n## 修复问题\n- 闭合了若干问题，具体问题详情暂无进一步信息。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726030634, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=64, prompt_tokens=224, total_tokens=288))
+2024-09-11 04:57:15 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
+2024-09-11 05:00:09 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
+2024-09-11 05:00:09 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
+2024-09-11 05:00:09 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-11 05:00:10 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
+2024-09-11 05:00:10 | INFO | llm_module:generate_summary:33 - Starting report generation using GPT model.
+2024-09-11 05:00:11 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A69kYpQGhtUhHbMzK4XrYeBl74IsF', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 无新增功能信息\n\n## 主要改进\n- 无主要改进信息\n\n## 修复问题\n- 无修复问题信息', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726030810, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=54, prompt_tokens=224, total_tokens=278))
+2024-09-11 05:00:11 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
+2024-09-11 05:00:12 | INFO | daemon_process:github_job:39 - [定时任务执行完毕]
+2024-09-11 05:03:01 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
+2024-09-11 05:03:01 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
+2024-09-11 05:03:01 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-11 05:03:02 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
+2024-09-11 05:03:02 | INFO | llm_module:generate_summary:33 - Starting report generation using GPT model.
+2024-09-11 05:03:03 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A69nLY9oq6VE4WwhU9FpWxoix6h7J', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 无新增功能记录。\n\n## 主要改进\n- 无主要改进记录。\n\n## 修复问题\n- 今天关闭了一些问题，具体定义和影响尚未公布。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726030983, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=63, prompt_tokens=224, total_tokens=287))
+2024-09-11 05:03:03 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
+2024-09-11 05:03:04 | INFO | daemon_process:github_job:39 - [定时任务执行完毕]
+2024-09-11 05:07:03 | INFO | daemon_process:graceful_shutdown:25 - [优雅退出]守护进程接收到终止信号
+2024-09-11 05:07:16 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
+2024-09-11 05:07:16 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
+2024-09-11 05:07:16 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-11 05:07:18 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
+2024-09-11 05:07:18 | INFO | llm_module:generate_summary:33 - Starting report generation using GPT model.
+2024-09-11 05:07:19 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A69rS3PMLfczB5SWq4JiLgS7fhmp9', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 闭合多个相关问题，以提升项目稳定性与用户体验。\n\n## 主要改进\n- 优化现有功能以提高性能表现。\n- 增强文档说明，使新用户更易上手。\n\n## 修复问题\n- 修复了一些已知的bug，提高了代码的健壮性。\n- 解决了可能导致数据丢失的兼容性问题。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726031238, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=110, prompt_tokens=224, total_tokens=334))
+2024-09-11 05:07:19 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
+2024-09-11 05:07:19 | INFO | notification_service:send_email:14 - 准备发送邮件
+2024-09-11 05:07:20 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
+2024-09-11 05:07:20 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
+2024-09-11 05:07:20 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-11 05:07:22 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
+2024-09-11 05:07:22 | INFO | llm_module:generate_summary:33 - Starting report generation using GPT model.
+2024-09-11 05:07:23 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A69rWZ1OyMqGpr1TylKQ0UNrCGerx', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 无新增功能记录。\n\n## 主要改进\n- 无主要改进记录。\n\n## 修复问题\n- 关闭了多个与项目相关的问题，具体内容未详细列出。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726031242, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=65, prompt_tokens=224, total_tokens=289))
+2024-09-11 05:07:23 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
+2024-09-11 05:07:23 | INFO | notification_service:send_email:14 - 准备发送邮件
+2024-09-11 05:07:33 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
+2024-09-11 05:07:33 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
+2024-09-11 05:07:33 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-11 05:07:34 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
+2024-09-11 05:07:34 | INFO | llm_module:generate_summary:33 - Starting report generation using GPT model.
+2024-09-11 05:07:35 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A69ri0Ku4DMTDCord0Fir9dl5JhTx', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 无\n\n## 主要改进\n- 无\n\n## 修复问题\n- 今日关闭了一些问题。具体问题详情待进一步更新。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726031254, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=55, prompt_tokens=224, total_tokens=279))
+2024-09-11 05:07:35 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
+2024-09-11 05:07:35 | INFO | notification_service:send_email:14 - 准备发送邮件
+2024-09-11 05:08:33 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
+2024-09-11 05:08:33 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
+2024-09-11 05:08:33 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-11 05:08:34 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
+2024-09-11 05:08:34 | INFO | llm_module:generate_summary:33 - Starting report generation using GPT model.
+2024-09-11 05:08:35 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A69sgNRy9jy5gBLrKR1FrTXLHktjF', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 无新增功能报告。\n\n## 主要改进\n- 无主要改进报告。\n\n## 修复问题\n- 今天关闭了若干问题，具体细节尚未提供。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726031314, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=63, prompt_tokens=224, total_tokens=287))
+2024-09-11 05:08:35 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
+2024-09-11 05:08:35 | INFO | notification_service:send_email:15 - 准备发送邮件
+2024-09-11 05:08:36 | INFO | daemon_process:github_job:39 - [定时任务执行完毕]
