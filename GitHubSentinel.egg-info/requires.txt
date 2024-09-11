@@ -1,3 +1,7 @@
 requests
 openai
 loguru
+gradio
+python-daemon
+datetime
+schedule

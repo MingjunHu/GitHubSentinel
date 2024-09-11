@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: GitHubSentinel
-Version: 0.3.2
+Version: 0.4.2
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
@@ -8,3 +8,7 @@ Requires-Python: >=3.6
 Requires-Dist: requests
 Requires-Dist: openai
 Requires-Dist: loguru
+Requires-Dist: gradio
+Requires-Dist: python-daemon
+Requires-Dist: datetime
+Requires-Dist: schedule

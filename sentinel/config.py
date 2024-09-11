@@ -12,6 +12,8 @@ class Config:
 
     NOTIFICATION_EMAIL = os.getenv('NOTIFICATION_EMAIL','hmj007007@gmail.com')
     UPDATE_FREQUENCY = 'daily'  # or 'weekly'
+
+    freq_days = 1
     
     @staticmethod
     def get_subscribed_repositories():

@@ -2,10 +2,12 @@
 
 import argparse
 import threading
+import daemon
 from sentinel.daily_progress import generate_daily_progress
 from sentinel.report_generator import ReportGenerator
 from sentinel.tasks.scheduler import Scheduler
-from sentinel.services.subscription_service import SubscriptionService
+from sentinel.services.subscription_service import SubscriptionService,NotificationService
+from sentinel.utils.github_api import GitHubAPI
 from sentinel.logger import LOG  # 导入日志模块
 
 subscription_service = SubscriptionService()
@@ -15,13 +17,23 @@ scheduler_thread = None
 
 def start_scheduler():
     global scheduler, scheduler_thread
-    scheduler = Scheduler(subscription_service)
-    scheduler_thread = threading.Thread(target=scheduler.start,args=(scheduler,))
+    subscription_service2 = SubscriptionService()
+    report_generator2 = ReportGenerator()
+    github_api=GitHubAPI()
+    notification_service = NotificationService()
+    scheduler = Scheduler(subscription_service2,report_generator2,github_api,notification_service,True)
+    scheduler_thread = threading.Thread(target=scheduler.start)
     scheduler_thread.daemon = True  # 设置为守护线程，不阻塞主进程
     scheduler_thread.start()
     LOG.info("Scheduler thread started.")  # 记录调度器线程已启动
     
-    print("Scheduler started in the background.")
+    # 使用python-daemon库，以守护进程方式运行程序
+    with daemon.DaemonContext():
+        try:
+            while True:
+                time.sleep(config.update_interval)  # 按配置的更新间隔休眠
+        except KeyboardInterrupt:
+            LOG.info("Daemon process stopped.")  # 在接收到中断信号时记录日志
 
 def stop_scheduler():
     global scheduler

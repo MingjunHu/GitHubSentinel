@@ -1,7 +1,3 @@
-2024-09-11 04:13:45 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
-2024-09-11 04:13:45 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
-2024-09-11 04:13:45 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
-2024-09-11 04:13:47 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
 2024-09-11 04:14:41 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
 2024-09-11 04:14:41 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
 2024-09-11 04:14:41 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
@@ -10,3 +6,9 @@
 2024-09-11 04:14:44 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A692ZNl4LZGLVJ2QXqRM81w13XDli', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 今日没有新增功能。\n\n## 主要改进\n- 今日没有主要改进。\n\n## 修复问题\n- 今日关闭了若干个问题，具体细节尚未更新。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726028083, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=64, prompt_tokens=224, total_tokens=288))
 2024-09-11 04:14:44 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
 2024-09-11 04:14:45 | INFO | daemon_process:github_job:39 - [定时任务执行完毕]
+Traceback (most recent call last):
+  File "/opt/aiworkspase/githubsent/GitHubSentinel/./sentinel/daemon_process.py", line 72, in <module>
+    main()
+  File "/opt/aiworkspase/githubsent/GitHubSentinel/./sentinel/daemon_process.py", line 57, in main
+    config.exec_time
+AttributeError: 'Config' object has no attribute 'exec_time'

@@ -55,20 +55,17 @@ class GitHubAPI:
         return response.json()  # 返回JSON格式的数据
 
     def export_to_markdown(self, repo):
-        LOG.debug(f"[准备导出项目进度]：{repo}")
+        LOG.info(f"[准备导出项目进度]：{repo}")
         today = datetime.now().date().isoformat()  # 获取今天的日期
         updates = self.fetch_updates(repo, since=today)  # 获取今天的更新数据
-        
         repo_dir = os.path.join('daily_progress', repo.replace("/", "_"))  # 构建存储路径
         os.makedirs(repo_dir, exist_ok=True)  # 确保目录存在
-        
         file_path = os.path.join(repo_dir, f'{today}.md')  # 构建文件路径
         with open(file_path, 'w') as file:
             file.write(f"# Daily Progress for {repo} ({today})\n\n")
             file.write("\n## Issues Closed Today\n")
             for issue in updates['issues']:  # 写入今天关闭的问题
                 file.write(f"- {issue['title']} #{issue['number']}\n")
-        
         LOG.info(f"[{repo}]项目每日进展文件生成： {file_path}")  # 记录日志
         return file_path
     
@@ -93,4 +90,7 @@ class GitHubAPI:
         
         LOG.info(f"[{repo}]项目最新进展文件生成： {file_path}")  # 记录日志
         return file_path
-    
+
+if __name__ == "__main__":
+    github_api=GitHubAPI()
+    github_api.export_to_markdown("langchain-ai/langchain")

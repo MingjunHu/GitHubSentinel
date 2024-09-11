@@ -11,8 +11,7 @@ class LLMModule:
             self.system_prompt = file.read()
         # 从配置项中获取 OpenAI API 密钥
         self.client = OpenAI(api_key=Config.OPENAI_API_KEY)
-        # 配置日志文件，当文件大小达到1MB时自动轮转，日志级别为DEBUG
-        LOG.add("logs/llm_logs.log", rotation="1 MB", level="DEBUG")
+        
 
     def generate_summary(self, markdown_content,dry_run=False):
         # 使用从TXT文件加载的提示信息
