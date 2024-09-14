@@ -5,8 +5,8 @@ from sentinel.llm_module import LLMModule
 from sentinel.logger import LOG  # 导入日志模块，用于记录日志信息
 
 class ReportGenerator:
-    def __init__(self):
-        self.llm = LLMModule()
+    def __init__(self,llm):
+        self.llm = llm # 初始化时接受一个LLM实例，用于后续生成报告
 
     def generate_formal_report(self, markdown_file_path):
         # 读取Markdown文件并使用LLM生成日报

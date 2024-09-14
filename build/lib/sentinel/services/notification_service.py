@@ -24,6 +24,7 @@ class NotificationService:
 
         try:
             with smtplib.SMTP_SSL('smtp.qq.com',465) as server:
+                LOG.debug("登录SMTP服务器")
                 server.login(msg['From'], 'wsfrunybtnsocadi')
                 server.sendmail(msg['From'], msg['To'], msg.as_string())
         except Exception as e:

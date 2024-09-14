@@ -13,6 +13,7 @@ from sentinel.services.subscription_service import SubscriptionService
 from sentinel.services.notification_service import NotificationService
 from sentinel.utils.github_api import GitHubAPI
 from sentinel.logger import LOG  # 导入日志模块
+from sentinel.llm_modeule import LLMModule
 
 
 def graceful_shutdown(signum, frame):
@@ -47,7 +48,8 @@ def main():
     subscription_service = SubscriptionService()
     notification_service = NotificationService()
     github_api=GitHubAPI()
-    report_generator=ReportGenerator()
+    llm = LLMModule(config)  # 创建语言模型实例
+    report_generator=ReportGenerator(llm)
 
     # 启动时立即执行（如不需要可注释）
     github_job(subscription_service, github_api, report_generator, notification_service, config.freq_days)

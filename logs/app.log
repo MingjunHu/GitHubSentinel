@@ -67,3 +67,15 @@
 2024-09-11 05:08:35 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
 2024-09-11 05:08:35 | INFO | notification_service:send_email:15 - 准备发送邮件
 2024-09-11 05:08:36 | INFO | daemon_process:github_job:39 - [定时任务执行完毕]
+2024-09-11 08:00:00 | INFO | daemon_process:github_job:29 - [开始执行定时任务]
+2024-09-11 08:00:00 | INFO | daemon_process:github_job:31 - 订阅列表：['langchain-ai/langchain']
+2024-09-11 08:00:00 | INFO | github_api:export_to_markdown:58 - [准备导出项目进度]：langchain-ai/langchain
+2024-09-11 08:00:02 | INFO | github_api:export_to_markdown:69 - [langchain-ai/langchain]项目每日进展文件生成： daily_progress/langchain-ai_langchain/2024-09-11.md
+2024-09-11 08:00:02 | INFO | llm_module:generate_summary:33 - Starting report generation using GPT model.
+2024-09-11 08:00:03 | DEBUG | llm_module:generate_summary:41 - GPT response: ChatCompletion(id='chatcmpl-A6CYc8l0cDp0FwtNHxA9QhGTa9QOQ', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-09-11\n\n## 新增功能\n- 暂无新增功能报告。\n\n## 主要改进\n- 暂无主要改进报告。\n\n## 修复问题\n- 在今天的进度中，闭合了几个Issues，但具体修复内容未详细列出。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726041602, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=75, prompt_tokens=224, total_tokens=299))
+2024-09-11 08:00:03 | INFO | report_generator:generate_formal_report:22 - GitHub 项目报告已保存到 daily_progress/langchain-ai_langchain/2024-09-11_report.md
+2024-09-11 08:00:03 | INFO | notification_service:send_email:15 - 准备发送邮件
+2024-09-11 08:00:04 | INFO | daemon_process:github_job:39 - [定时任务执行完毕]
+2024-09-11 12:42:29 | INFO | daemon_process:graceful_shutdown:25 - [优雅退出]守护进程接收到终止信号
+2024-09-14 07:15:15 | INFO | llm_module:_generate_report_openai:61 - 使用 OpenAI GPT 模型开始生成报告。
+2024-09-14 07:15:17 | DEBUG | llm_module:_generate_report_openai:67 - GPT response: ChatCompletion(id='chatcmpl-A7HHw44tL0S3RUfkxW0VastcSoOyi', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='# LangChain 项目进展\n\n## 时间周期：2024-08-20至2024-08-21\n\n## 新增功能\n- 发布了partners/chroma版本0.1.3。\n\n## 主要改进\n- 更新了文档中的few-shot概念指南。\n- 更新了API参考中的示例，以提高使用说明的清晰度和实用性。\n\n## 修复问题\n- 关闭了一些与文档及示例相关的问题，优化了整体用户体验。', refusal=None, role='assistant', function_call=None, tool_calls=None))], created=1726298116, model='gpt-4o-mini-2024-07-18', object='chat.completion', service_tier=None, system_fingerprint='fp_483d39d857', usage=CompletionUsage(completion_tokens=108, prompt_tokens=276, total_tokens=384, completion_tokens_details={'reasoning_tokens': 0}))
