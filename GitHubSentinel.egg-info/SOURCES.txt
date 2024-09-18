@@ -28,6 +28,7 @@ sentinel/tasks/__init__.py
 sentinel/tasks/scheduler.py
 sentinel/utils/__init__.py
 sentinel/utils/github_api.py
+sentinel/utils/hacker_news_api.py
 sentinel/utils/notifier.py
 sentinel/utils/report.py
 tests/__init__.py

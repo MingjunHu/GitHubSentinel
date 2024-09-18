@@ -14,7 +14,7 @@ class Config:
     UPDATE_FREQUENCY = 'daily'  # or 'weekly'
 
     freq_days = 1
-    exec_time="08:00"
+    exec_time="8:00"
 
     def __init__(self):
         self.load_config()
@@ -47,7 +47,7 @@ class Config:
             # 默认每天执行
             self.freq_days = config.get('github_progress_frequency_days', 1)
             # 默认早上8点更新 (操作系统默认时区是 UTC +0，08点刚好对应北京时间凌晨12点)
-            self.exec_time = config.get('github_progress_execution_time', "08:00") 
+            self.exec_time = config.get('github_progress_execution_time', "8:00") 
 
             # 加载 LLM 相关配置
             llm_config = config.get('llm', {})
@@ -55,6 +55,9 @@ class Config:
             self.openai_model_name = llm_config.get('openai_model_name', 'gpt-4o-mini')
             self.ollama_model_name = llm_config.get('ollama_model_name', 'llama3')
             self.ollama_api_url = llm_config.get('ollama_api_url', 'http://localhost:11434/api/chat')
+
+            # 加载报告类型配置
+            self.report_types = config.get('report_types', ["github", "hacker_news"])  # 默认报告类型
 
 # 调试：打印当前 Token，确保已正确加载
 #print(f"Using GitHub Token: {Config.GITHUB_TOKEN}")
