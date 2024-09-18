@@ -19,18 +19,16 @@ class LLMModule:
         elif self.model == "ollama":
             self.api_url = config.ollama_api_url  # 设置Ollama API的URL
         else:
+            LOG.error(f"不支持的模型类型: {self.model}")
             raise ValueError(f"Unsupported model type: {self.model}")  # 如果模型类型不支持，抛出错误
-        
-        # 从TXT文件加载系统提示信息
-        with open("prompts/report_prompt.txt", "r", encoding='utf-8') as file:
-            self.system_prompt = file.read()
+
         
 
-    def generate_summary(self, markdown_content,dry_run=False):
+    def generate_summary(self, system_prompt,user_content,dry_run=False):
         # 使用从TXT文件加载的提示信息
         messages = [
-            {"role": "system", "content": self.system_prompt},
-            {"role": "user", "content": markdown_content},
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_content},
         ]
 
         if dry_run:
