@@ -24,11 +24,11 @@ class LLMModule:
 
         
 
-    def generate_summary(self, system_prompt,markdown_content,dry_run=False):
+    def generate_summary(self, system_prompt,user_content,dry_run=False):
         # 使用从TXT文件加载的提示信息
         messages = [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": markdown_content},
+            {"role": "user", "content": user_content},
         ]
 
         if dry_run:

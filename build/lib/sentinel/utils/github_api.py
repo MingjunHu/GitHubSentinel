@@ -21,38 +21,48 @@ class GitHubAPI:
         return updates
 
     def get_repo_issues(self, repo, since=None, until=None):
-        url = f'https://api.github.com/repos/{repo}/issues'
-        params = {
-            'state': 'closed',  # 仅获取已关闭的问题
-            'since': since,
-            'until': until
-        }
-        response = requests.get(url, headers=self.headers, params=params)
-        response.raise_for_status()
-        return response.json()
+        LOG.debug(f"准备获取 {repo} 的 Issues。")
+        url = f'https://api.github.com/repos/{repo}/issues'  # 构建获取问题的API URL
+        params = {'state': 'closed', 'since': since, 'until': until}
+        try:
+            response = requests.get(url, headers=self.headers, params=params, timeout=10)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            LOG.error(f"从 {repo} 获取 Issues 失败：{str(e)}")
+            LOG.error(f"响应详情：{response.text if 'response' in locals() else '无响应数据可用'}")
+            return []
 
     def get_repo_pull_requests(self, repo, since=None, until=None):
-        url = f'https://api.github.com/repos/{repo}/pulls'
-        params = {
-            'state': 'closed',  # 仅获取已合并的拉取请求
-            'since': since,
-            'until': until
-        }
-        response = requests.get(url, headers=self.headers, params=params)
-        response.raise_for_status()
-        return response.json()
+        LOG.debug(f"准备获取 {repo} 的 Pull Requests。")
+        url = f'https://api.github.com/repos/{repo}/pulls'  # 构建获取拉取请求的API URL
+        params = {'state': 'closed', 'since': since, 'until': until}
+        try:
+            response = requests.get(url, headers=self.headers, params=params, timeout=10)
+            response.raise_for_status()  # 确保成功响应
+            return response.json()
+        except Exception as e:
+            LOG.error(f"从 {repo} 获取 Pull Requests 失败：{str(e)}")
+            LOG.error(f"响应详情：{response.text if 'response' in locals() else '无响应数据可用'}")
+            return []
 
     def get_repo_commits(self, repo, since=None, until=None):
-        url = f'https://api.github.com/repos/{repo}/commits'
+        LOG.debug(f"准备获取 {repo} 的 Commits")
+        url = f'https://api.github.com/repos/{repo}/commits'  # 构建获取提交的API URL
         params = {}
         if since:
             params['since'] = since  # 如果指定了开始日期，添加到参数中
         if until:
             params['until'] = until  # 如果指定了结束日期，添加到参数中
 
-        response = requests.get(url, headers=self.headers, params=params)
-        response.raise_for_status()  # 检查请求是否成功
-        return response.json()  # 返回JSON格式的数据
+        try:
+            response = requests.get(url, headers=self.headers, params=params, timeout=10)
+            response.raise_for_status()  # 检查请求是否成功
+            return response.json()  # 返回JSON格式的数据
+        except Exception as e:
+            LOG.error(f"从 {repo} 获取 Commits 失败：{str(e)}")
+            LOG.error(f"响应详情：{response.text if 'response' in locals() else '无响应数据可用'}")
+            return []  # Handle failure case
 
     def export_to_markdown(self, repo):
         LOG.info(f"[准备导出项目进度]：{repo}")
