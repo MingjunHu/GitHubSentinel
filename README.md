@@ -183,6 +183,7 @@ chmod +x build_image.sh
 ./build_image.sh
 
 ## 开发日志
+v0.8.1已知bug处理
 v0.8：容器化部署，gradio私有化大模型选择。
 v0.6：增加LLM配置项，支持Ollama模型和Open AI模型
 v0.5: 完成报告生成功能，包括自动发送项目进展报告邮件。

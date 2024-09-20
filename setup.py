@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='GitHubSentinel',
-    version='0.8',  # 更新为v0.8.0版本
+    version='0.8.1',  # 更新为最新版本
     packages=find_packages(),
     install_requires=[
         'requests',
